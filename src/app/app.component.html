@@ -1,6 +1,8 @@
+
+
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-lg-12">
       <div class="card bg-dark my-5">
         <div class="card-body">
           <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
@@ -14,7 +16,18 @@
           </ul>
         </div>
       </div>
-      <router-outlet></router-outlet>
+      <div class="d-flex flex-row bd-highlight mb-3">
+        <div class="p-2 bd-highlight">
+          <app-accounts-list></app-accounts-list>
+        </div>
+        <div class="p-2 bd-highlight">
+          <router-outlet></router-outlet>
+        </div>
+        <!-- <div class="p-2 bd-highlight">Flex item 3</div> -->
+      </div>
+      <!-- here -->
+      <!-- <app-accounts-list></app-accounts-list> -->
+      <!-- <router-outlet></router-outlet> -->
     </div>
   </div>
 </div>

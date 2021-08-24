@@ -1,6 +1,6 @@
 <div class="card my-5">
   <div class="card-body">
-    <table class="table table-bordered table-striped">
+    <!-- <table class="table table-bordered table-striped">
       <thead class="thead-dark">
       <tr>
         <th scope="col">ID</th>
@@ -15,8 +15,44 @@
         <td>{{ account.amount }}</td>
         <td>{{ account.type }}</td>
         <td>{{ account.name }}</td>
-<!--        <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>-->
       </tr>
+      
+      </tbody>
+    </table> -->
+
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Type</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let account of cashAccounts">
+        <td>{{ account.name }} </td>
+        <td>{{ account.amount }}</td>
+        <td>{{ account.type }}</td>
+      </tr>
+      
+      </tbody>
+    </table>
+
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Type</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let account of investmentAccounts">
+        <td>{{ account.name }} </td>
+        <td>{{ account.amount }}</td>
+        <td>{{ account.type }}</td>
+      </tr>
+      
       </tbody>
     </table>
   </div>
