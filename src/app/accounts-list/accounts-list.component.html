@@ -13,14 +13,12 @@
       <thead class="thead-dark">
       <tr>
         <th scope="col">Name</th>
-        <th scope="col">Type</th>
         <th scope="col">Amount</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let c of cashAccounts">
         <td>{{ c.name }}</td>
-        <td>{{ c.type }}</td>
         <td>{{ c.amount | currency }}</td>
       </tr>
       </tbody>
@@ -32,14 +30,12 @@
       <thead class="thead-dark">
       <tr>
         <th scope="col">Name</th>
-        <th scope="col">Type</th>
         <th scope="col">Amount</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let i of investmentAccounts">
         <td>{{ i.name }}</td>
-        <td>{{ i.type }}</td>
         <td>{{ i.amount | currency }}</td>
       </tr>
       </tbody>

@@ -6,18 +6,40 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AccountServiceService {
 
+  private baseUrl: string;
   private accountsUrl: string;
+  private accountsByTypeUrl: string;
+  private getNetWorthUrl: string;
+
+
+  
 
   constructor(private http: HttpClient) {
-    this.accountsUrl = 'http://portfolio-project-portfolio-project.namdevops24.conygre.com/account';
+    this.baseUrl="http://portfolio-project-portfolio-project.namdevops24.conygre.com";
+    
+    this.accountsUrl = this.baseUrl+"/account";
+    this.accountsByTypeUrl = this.accountsUrl+"/type/";
+    this.getNetWorthUrl = this.accountsUrl+"/NetWorth";
+
   }
 
     public findAll(): Observable<Account[]> {
       return this.http.get<Account[]>(this.accountsUrl);
     }
 
+    public findAccountsByType(type:string): Observable<Account[]> {
+      console.log("URL:",this.accountsByTypeUrl+type)
+      return this.http.get<Account[]>(this.accountsByTypeUrl+type);
+    }
+
     public save(account: Account) {
       return this.http.post<Account>(this.accountsUrl, account);
     }
+    public getNetWorth():Observable<number>{
+      
+      return this.http.get<number>(this.getNetWorthUrl);
+    }
+
+
 
 }
