@@ -16,13 +16,15 @@ export class AccountsListComponent implements OnInit {
   constructor(private accountsService: AccountServiceService) { }
 
   ngOnInit() {
+
+    //Set account list 
     this.accountsService.findAll()
     .subscribe(data=>{
       this.accounts=data;
 
       data.forEach(acc => {
 
-        this.netWorth += acc['amount']
+        // this.netWorth += acc['amount']
 
         if (acc["type"] == "investment"){
           this.investmentAccounts.push(acc)
@@ -34,8 +36,19 @@ export class AccountsListComponent implements OnInit {
 
     }),
     error=>{
-      console.log("got error",error);
+      console.log("ERROR: Couldn't set account list ",error);
     }
+
+    //Set network
+    this.accountsService.getNetWorth()
+    .subscribe(data=>{
+      this.netWorth=data;
+    }),
+    error=>{
+      console.log("ERROR: Couldn't set Networth",error);
+    }
+
+
 
 
   }
