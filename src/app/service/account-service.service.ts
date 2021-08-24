@@ -18,9 +18,8 @@ export class AccountServiceService {
     this.baseUrl="http://portfolio-project-portfolio-project.namdevops24.conygre.com";
     
     this.accountsUrl = this.baseUrl+"/account";
-    this.accountsByTypeUrl = this.baseUrl+"/type/";
-
-    this.getNetWorthUrl = this.baseUrl+"/NetWorth";
+    this.accountsByTypeUrl = this.accountsUrl+"/type/";
+    this.getNetWorthUrl = this.accountsUrl+"/NetWorth";
 
   }
 
@@ -29,6 +28,7 @@ export class AccountServiceService {
     }
 
     public findAccountsByType(type:string): Observable<Account[]> {
+      console.log("URL:",this.accountsByTypeUrl+type)
       return this.http.get<Account[]>(this.accountsByTypeUrl+type);
     }
 
@@ -36,6 +36,7 @@ export class AccountServiceService {
       return this.http.post<Account>(this.accountsUrl, account);
     }
     public getNetWorth():Observable<number>{
+      
       return this.http.get<number>(this.getNetWorthUrl);
     }
 

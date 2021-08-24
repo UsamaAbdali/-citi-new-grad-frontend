@@ -16,41 +16,41 @@ export class AccountsListComponent implements OnInit {
   constructor(private accountsService: AccountServiceService) { }
 
   ngOnInit() {
+    this.setNetWorth();
+    this.setAccounts();
+  }
 
-    //Set account list 
-    this.accountsService.findAll()
-    .subscribe(data=>{
-      this.accounts=data;
-
-      data.forEach(acc => {
-
-        // this.netWorth += acc['amount']
-
-        if (acc["type"] == "investment"){
-          this.investmentAccounts.push(acc)
-        } else {
-          this.cashAccounts.push(acc)
-        }
-
-      });
-
-    }),
-    error=>{
-      console.log("ERROR: Couldn't set account list ",error);
-    }
-
-    //Set network
+  setNetWorth(){
     this.accountsService.getNetWorth()
     .subscribe(data=>{
       this.netWorth=data;
     }),
     error=>{
-      console.log("ERROR: Couldn't set Networth",error);
+      console.log("ERROR: Couldn't set NetWorth",error);
     }
-
-
-
-
   }
 
+  setAccounts(){
+    //Set Cash accounts
+    this.accountsService.findAccountsByType("cash")
+    .subscribe(data=>{
+      data.forEach(acc => {
+        this.cashAccounts.push(acc)
+      });
+    }),
+    error=>{
+      console.log("ERROR: Couldn't set Cash Accounts",error);
+    }
+
+    //Set investment accounts
+    this.accountsService.findAccountsByType("investment")
+    .subscribe(data=>{
+      data.forEach(acc => {
+        this.investmentAccounts.push(acc)
+      });
+    }),
+    error=>{
+      console.log("ERROR: Couldn't set Investment Accounts",error);
+    }
+  }
 }
