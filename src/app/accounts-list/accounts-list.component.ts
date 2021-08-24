@@ -10,6 +10,9 @@ import { AccountServiceService } from '../service/account-service.service';
 export class AccountsListComponent implements OnInit {
   accounts: Account[];
   netWorth: number = 0;
+  cashValue:number=0;
+  investmentValue:number=0;
+
   cashAccounts = [];
   investmentAccounts = [];
 
@@ -34,9 +37,12 @@ export class AccountsListComponent implements OnInit {
     //Set Cash accounts
     this.accountsService.findAccountsByType("cash")
     .subscribe(data=>{
+      this.cashValue=0;
       data.forEach(acc => {
+        this.cashValue+=acc.amount
         this.cashAccounts.push(acc)
       });
+      this.cashValue=Math.round(this.cashValue * 100) / 100
     }),
     error=>{
       console.log("ERROR: Couldn't set Cash Accounts",error);
@@ -45,12 +51,17 @@ export class AccountsListComponent implements OnInit {
     //Set investment accounts
     this.accountsService.findAccountsByType("investment")
     .subscribe(data=>{
+      this.investmentValue=0;
       data.forEach(acc => {
+        this.investmentValue+=acc.amount
         this.investmentAccounts.push(acc)
       });
+      this.investmentValue=Math.round(this.investmentValue * 100) / 100
     }),
     error=>{
       console.log("ERROR: Couldn't set Investment Accounts",error);
     }
   }
+
+  
 }
