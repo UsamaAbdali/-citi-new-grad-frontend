@@ -8,11 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AccountsListComponent } from './accounts-list/accounts-list.component';
 import { AccountServiceService } from './service/account-service.service';
+import { CashFlowComponent } from './cash-flow/cash-flow.component';
+import { MarketMoversComponent } from './market-movers/market-movers.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccountsListComponent,
+    CashFlowComponent,
+    MarketMoversComponent,
 //     AccountServiceService
 //     AccountsListComponent
   ],

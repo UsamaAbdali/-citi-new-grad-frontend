@@ -1,23 +1,49 @@
-<div class="card my-5">
+<div class="card my-1">
+  
   <div class="card-body">
-    <table class="table table-bordered table-striped">
+    <h2>Accounts</h2>
+
+    <button class="btn btn-info my-2">Manage Accounts</button>
+    <br>
+    <h4>Networth: {{netWorth | currency}}</h4>
+    
+    <br>
+    <div><h5 class="font-weight-bold">Cash</h5></div>
+    <table class="table table-striped">
       <thead class="thead-dark">
       <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Amount</th>
-        <th scope="col">Type</th>
         <th scope="col">Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Amount</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let account of accounts">
-        <td>{{ account.id }}</td>
-        <td>{{ account.amount }}</td>
-        <td>{{ account.type }}</td>
-        <td>{{ account.name }}</td>
-<!--        <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>-->
+      <tr *ngFor="let c of cashAccounts">
+        <td>{{ c.name }}</td>
+        <td>{{ c.type }}</td>
+        <td>{{ c.amount | currency }}</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <br>
+    <div><h5 class="font-weight-bold">Investments</h5></div>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Amount</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let i of investmentAccounts">
+        <td>{{ i.name }}</td>
+        <td>{{ i.type }}</td>
+        <td>{{ i.amount | currency }}</td>
       </tr>
       </tbody>
     </table>
   </div>
+
 </div>
