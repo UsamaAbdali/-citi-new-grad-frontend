@@ -1,4 +1,6 @@
+import { HistoryModel } from './history';
 import { Securities } from './Securities';
+
 export class Account {
     
     id: number;
@@ -6,5 +8,5 @@ export class Account {
     type: string;
     name: string;
     securitiesList: Securities[];
-    historyList: any[];
+    historyList: HistoryModel[];
 }

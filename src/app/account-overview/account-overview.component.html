@@ -7,7 +7,7 @@
     <br>
     <div class="d-flex flex-row bd-highlight mb-3">
       <h4 class="font-weight-bold mr-auto">ID </h4>
-      <h4 class="font-weight-bold ml-auto"> $1</h4>
+      <h4 class="font-weight-bold ml-auto">{{accountId}}</h4>
     </div>
     <div class="d-flex flex-row bd-highlight mb-3">
       <h4 class="font-weight-bold mr-auto">Amount </h4>
@@ -19,7 +19,7 @@
     </div>
     
     <hr>
-    <table class="table table-striped">
+    <!-- <table class="table table-striped">
       <thead class="thead-dark">
       <tr>
         <th scope="col">Name</th> 
@@ -27,12 +27,12 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let c of securities">
-        <td>{{ c.name }}</td>
-        <td>{{ c.amount | currency }}</td>
+      <tr *ngFor="let c of currAccount.securitiesList">
+        <td>{{ c.id }}</td>
+        <td>{{ c.symbol | currency }}</td>
       </tr>
       </tbody>
-    </table>
+    </table> -->
 
     <br>
   </div>
