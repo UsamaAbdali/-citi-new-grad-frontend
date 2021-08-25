@@ -13,7 +13,10 @@ import { CashFlowComponent } from './cash-flow/cash-flow.component';
 import { MarketMoversComponent } from './market-movers/market-movers.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { SummaryOverviewComponent } from './summary-overview/summary-overview.component'; 
+import { SummaryOverviewComponent } from './summary-overview/summary-overview.component';
+import { AccountOverviewComponent } from './account-overview/account-overview.component';
+import { ManageAccountsComponent } from './manage-accounts/manage-accounts.component'; 
+
 
 // import {  DxPieChartModule, DxSelectBoxModule  } from 'devextreme-angular';
 
@@ -25,7 +28,9 @@ import { SummaryOverviewComponent } from './summary-overview/summary-overview.co
     MarketMoversComponent,
     HomePageComponent,
     PageNotFoundComponent,
-    SummaryOverviewComponent
+    SummaryOverviewComponent,
+    AccountOverviewComponent,
+    ManageAccountsComponent,
   ],
   imports: [
     BrowserModule,

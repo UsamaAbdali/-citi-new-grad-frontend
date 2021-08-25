@@ -8,7 +8,7 @@ import { AccountServiceService } from '../service/account-service.service';
   styleUrls: ['./accounts-list.component.css']
 })
 export class AccountsListComponent implements OnInit {
-  accounts: Account[];
+  // accounts: Account[];
   netWorth: number = 0;
   cashValue:number=0;
   investmentValue:number=0;
