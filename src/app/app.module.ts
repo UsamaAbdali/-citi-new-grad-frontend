@@ -13,6 +13,7 @@ import { CashFlowComponent } from './cash-flow/cash-flow.component';
 import { MarketMoversComponent } from './market-movers/market-movers.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SummaryOverviewComponent } from './summary-overview/summary-overview.component'; 
 
 // import {  DxPieChartModule, DxSelectBoxModule  } from 'devextreme-angular';
 
@@ -24,6 +25,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MarketMoversComponent,
     HomePageComponent,
     PageNotFoundComponent,
+    SummaryOverviewComponent
   ],
   imports: [
     BrowserModule,
