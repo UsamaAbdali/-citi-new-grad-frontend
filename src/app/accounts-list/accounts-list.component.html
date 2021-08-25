@@ -34,7 +34,7 @@
     <br>
     <div class="d-flex flex-row bd-highlight mb-3">
       <h4 class="font-weight-bold mr-auto">Cash </h4>
-      <h4 class="font-weight-bold ml-auto"> ${{cashValue}}</h4>
+      <h4 class="font-weight-bold ml-auto"> {{cashValue | currency}}</h4>
     </div>
     <hr>
     <table class="table table-striped">
@@ -55,7 +55,7 @@
     <br>
     <div class="d-flex flex-row bd-highlight mb-3" >
       <h4 class="font-weight-bold mr-auto" >Investments</h4>
-      <h4 class="font-weight-bold ml-auto"> ${{investmentValue}}</h4>
+      <h4 class="font-weight-bold ml-auto"> {{investmentValue | currency}}</h4>
     </div>
     <hr/>
     <table class="table table-striped">

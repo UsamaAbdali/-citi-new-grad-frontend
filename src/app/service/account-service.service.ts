@@ -10,7 +10,8 @@ export class AccountServiceService {
   private accountsUrl: string;
   private accountsByTypeUrl: string;
   private getNetWorthUrl: string;
-
+  private getCashValueUrl: string;
+  private getInvestmentValueUrl: string;
 
   
 
@@ -19,6 +20,8 @@ export class AccountServiceService {
     
     this.accountsByTypeUrl = this.baseUrl+"/type/";
     this.getNetWorthUrl = this.baseUrl+"/netWorth";
+    this.getCashValueUrl = this.baseUrl+"/cashAccountSummary";
+    this.getInvestmentValueUrl = this.baseUrl+"/investmentAccountSummary";
 
   }
 
@@ -27,17 +30,24 @@ export class AccountServiceService {
     }
 
     public findAccountsByType(type:string): Observable<Account[]> {
-      console.log("URL:",this.accountsByTypeUrl+type)
       return this.http.get<Account[]>(this.accountsByTypeUrl+type);
     }
 
     public save(account: Account) {
       return this.http.post<Account>(this.accountsUrl, account);
     }
-    public getNetWorth():Observable<number>{
-      
+    
+    public getNetWorth():Observable<number>{  
       return this.http.get<number>(this.getNetWorthUrl);
     }
+
+    public getCashValue():Observable<number>{
+      return this.http.get<number>(this.getCashValueUrl);
+    }     
+    
+    public getInvestmenthValue():Observable<number>{
+      return this.http.get<number>(this.getInvestmentValueUrl);
+    } 
 
 
 

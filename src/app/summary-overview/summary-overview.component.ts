@@ -1,5 +1,7 @@
 import { Component, OnInit, AfterViewInit, ElementRef, ViewChild} from '@angular/core';
 import { Chart } from 'Chart.js';
+import { AccountServiceService } from '../service/account-service.service';
+
 
 @Component({
   selector: 'app-summary-overview',
@@ -7,41 +9,76 @@ import { Chart } from 'Chart.js';
   styleUrls: ['./summary-overview.component.css']
 })
 export class SummaryOverviewComponent implements OnInit {
-  @ViewChild('summaryOverview') doughnutCanvas: ElementRef;
-  doughnutChart: any;
+  doughnutChart:any;
+  netWorth:number = 0;
+  cashValue:number = 42;
+  investmentValue:number = 42;
   
-  constructor() { }
+  constructor(private accountsService: AccountServiceService) { }
 
   ngOnInit() {
+    this.setNetWorth();
+    this.setCashValue();
+    this.setInvestmentValue();
   }
 
   ngAfterViewInit() {
-    this.doughnutChartMethod();
+  }
+
+  setNetWorth(){
+    this.accountsService.getNetWorth()
+    .subscribe(data=>{
+      this.netWorth=data;
+    }),
+    error=>{
+      console.log("ERROR: Couldn't set NetWorth",error);
+    }
+  }
+
+  setCashValue(){
+    this.accountsService.getCashValue()
+    .subscribe(data=>{
+      this.cashValue=data;
+      this.doughnutChartMethod();
+    }),
+    error=>{
+      console.log("ERROR: Couldn't set CashValue",error);
+    }
+  }
+
+  setInvestmentValue(){
+    this.accountsService.getInvestmenthValue()
+    .subscribe(data=>{
+      this.investmentValue=data;
+      this.doughnutChartMethod();
+    }),
+    error=>{
+      console.log("ERROR: Couldn't set InvestmentValue",error);
+    }
   }
 
   doughnutChartMethod() {
-    this.doughnutChart = new Chart('myChart', {
+    Chart.defaults.global.defaultFontSize = 18;
+    this.doughnutChart = new Chart('summaryChart', {
       type: 'doughnut',
       data: {
-        labels: ['BJP', 'Congress', 'AAP', 'CPM', 'SP'],
+        labels: ['Cash', 'Investment'],
         datasets: [{
-          label: '# of Votes',
-          data: [50, 29, 15, 10, 7],
+          label: 'money',
+          data: [this.cashValue, this.investmentValue],
           backgroundColor: [
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)'
+            '#36A2EB',
+            '#FFCE56'
           ],
           hoverBackgroundColor: [
-            '#FFCE56',
-            '#FF6384',
-            '#36A2EB',
-            '#FFCE56',
-            '#FF6384'
+            'rgba(54, 162, 235, 0.5)',
+            'rgba(255, 206, 86, 0.5)'
           ]
         }]
+      },
+      options: {
+        tooltips: {enabled: false},
+        hover: {mode: null}
       }
     });
   }
