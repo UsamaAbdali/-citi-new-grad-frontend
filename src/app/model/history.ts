@@ -4,4 +4,9 @@ export class HistoryModel {
     amount: number;
     id: number;
     transactionDate: string;
+
+    public constructor(transactionDate:string, amount:number){
+        this.transactionDate = transactionDate;
+        this.amount = amount;
+    }
 }
