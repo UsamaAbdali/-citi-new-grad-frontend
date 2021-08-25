@@ -11,6 +11,8 @@ import { AccountServiceService } from './service/account-service.service';
 import { CashFlowComponent } from './cash-flow/cash-flow.component';
 import { MarketMoversComponent } from './market-movers/market-movers.component';
 
+import { DxButtonModule, DxPieChartModule, DxSelectBoxModule  } from 'devextreme-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,10 @@ import { MarketMoversComponent } from './market-movers/market-movers.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    DxButtonModule, 
+    DxPieChartModule, 
+    DxSelectBoxModule
   ],
   providers: [AccountServiceService],
   bootstrap: [AppComponent]

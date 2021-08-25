@@ -6,8 +6,31 @@
       <button class="btn btn-info my-2 font-weight-bold ml-auto">Manage Accounts</button>
     </div>
     <hr>
-    <h4>Networth: {{netWorth | currency}}</h4>
     <!-- <hr> -->
+    <div id="chart-demo">
+      <dx-pie-chart #pie
+          [title]="'Net Worth: $'+ netWorth"
+          palette="bright"
+          [dataSource]="netWorthChartInfo"
+          [resolveLabelOverlapping]="resolveOverlappingTypes[1]">
+          <dxo-margin [bottom]="20"></dxo-margin>
+          <dxo-legend [visible]="true">
+            <dxo-font [size]="20"></dxo-font>
+          </dxo-legend>
+          <dxo-export [enabled]="true"></dxo-export>
+          <dxi-series
+              argumentField="accountType"
+              valueField="medals">
+              <dxo-label
+                  [visible]="true"
+                  [customizeText]="customizeLabel"
+              >
+              <dxo-font [size]="15"></dxo-font>
+              </dxo-label>
+          </dxi-series>
+      </dx-pie-chart>
+  </div>
+
     <br>
     <div class="d-flex flex-row bd-highlight mb-3">
       <h5 class="font-weight-bold mr-auto">Cash </h5>
