@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import {Account} from '../model/account';
 import { Securities } from '../model/Securities';
-// import { AccountServiceService } from '../service/account-service.service';
 import { SercuritiesService } from '../service/sercurities.service';
 
 
@@ -15,11 +13,8 @@ export class MarketMoversComponent implements OnInit {
 
   topGainersSecurities = [];
   topLosersSecurities = [];
-  // securitiesService: SercuritiesService;
-
 
   constructor(private securitiesService: SercuritiesService) { }
-  // constructor() { }
 
 
   ngOnInit() {

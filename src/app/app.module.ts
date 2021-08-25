@@ -12,7 +12,7 @@ import { SercuritiesService } from './service/sercurities.service';
 import { CashFlowComponent } from './cash-flow/cash-flow.component';
 import { MarketMoversComponent } from './market-movers/market-movers.component';
 
-// import { DxButtonModule, DxPieChartModule, DxSelectBoxModule  } from 'devextreme-angular';
+// import {  DxPieChartModule, DxSelectBoxModule  } from 'devextreme-angular';
 
 @NgModule({
   declarations: [
@@ -20,8 +20,6 @@ import { MarketMoversComponent } from './market-movers/market-movers.component';
     AccountsListComponent,
     CashFlowComponent,
     MarketMoversComponent,
-//     AccountServiceService
-//     AccountsListComponent
   ],
   imports: [
     BrowserModule,

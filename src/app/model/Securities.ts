@@ -5,6 +5,6 @@ export class Securities{
     holdings:number;
     closing_cost:number;
     current_cost:number;
-    // cash_account:string;
+    cash_account:string;
     account_id:number;
 }

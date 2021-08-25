@@ -16,7 +16,7 @@ export class AccountsListComponent implements OnInit {
   cashAccounts = [];
   investmentAccounts = [];
 
-    //pie chart
+    //Pie-Chart values
     netWorthChartInfo: any[];
     resolveOverlappingTypes = ["shift", "hide", "none"];
 
@@ -27,7 +27,7 @@ export class AccountsListComponent implements OnInit {
     this.setAccounts();
   }
 
-    //pie chart func
+    //Pie-Chart function
     customizeLabel(arg) {
       // return arg.argumentText + " (" + arg.percentText + ")";
       //  arg.value ;
@@ -54,7 +54,7 @@ export class AccountsListComponent implements OnInit {
         this.cashAccounts.push(acc);
       });
       this.cashValue=Math.round(this.cashValue * 100) / 100;
-      // Update Pie Chart
+      // Update Pie-Chart
       this.netWorthChartInfo=[{accountType: "Cash Value", medals: this.cashValue}, {accountType: "Investment Value", medals: this.investmentValue}];
 
     }),
@@ -71,7 +71,7 @@ export class AccountsListComponent implements OnInit {
         this.investmentAccounts.push(acc);
       });
       this.investmentValue=Math.round(this.investmentValue * 100) / 100;
-      // Update Pie Chart
+      // Update Pie-Chart
       this.netWorthChartInfo=[{accountType: "Cash Value", medals: this.cashValue}, {accountType: "Investment Value", medals: this.investmentValue}];
 
     }),

@@ -17,14 +17,13 @@ export class AccountServiceService {
   constructor(private http: HttpClient) {
     this.baseUrl="http://portfolio-project-portfolio-project.namdevops24.conygre.com";
     
-    this.accountsUrl = this.baseUrl+"/account";
-    this.accountsByTypeUrl = this.accountsUrl+"/type/";
-    this.getNetWorthUrl = this.accountsUrl+"/NetWorth";
+    this.accountsByTypeUrl = this.baseUrl+"/type/";
+    this.getNetWorthUrl = this.baseUrl+"/netWorth";
 
   }
 
     public findAll(): Observable<Account[]> {
-      return this.http.get<Account[]>(this.accountsUrl);
+      return this.http.get<Account[]>(this.baseUrl);
     }
 
     public findAccountsByType(type:string): Observable<Account[]> {
