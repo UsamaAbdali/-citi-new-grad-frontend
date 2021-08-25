@@ -10,6 +10,7 @@ import { AccountsListComponent } from './accounts-list/accounts-list.component';
 import { AccountServiceService } from './service/account-service.service';
 import { CashFlowComponent } from './cash-flow/cash-flow.component';
 import { MarketMoversComponent } from './market-movers/market-movers.component';
+import { SummaryOverviewComponent } from './summary-overview/summary-overview.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { MarketMoversComponent } from './market-movers/market-movers.component';
     AccountsListComponent,
     CashFlowComponent,
     MarketMoversComponent,
+    SummaryOverviewComponent,
 //     AccountServiceService
 //     AccountsListComponent
   ],
