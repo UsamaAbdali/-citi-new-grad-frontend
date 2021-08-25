@@ -1,0 +1,33 @@
+<div class="card my-1">
+  <div class="card-body">
+    <div class="d-flex flex-row bd-highlight mb-3" >
+      <h2 class="font-weight-bold" >Manage Accounts</h2>
+    </div>
+    <hr>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th> 
+        <th scope="col">Type</th> 
+        <th scope="col">Amount</th>
+        <th scope="col">Manage Account</th>
+        <th scope="col">Close Account</th>
+        <th scope="col">Security</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let acc of allAccounts">
+        <td>{{ acc.name }}</td>
+        <td>{{ acc.type }}</td>
+        <td>{{ acc.amount | currency }}</td>
+        <td><button>{{acc.name}} Overview</button></td>
+        <td><button> <span>&#127;</span> Close {{acc.name}}</button></td>
+        <td>{{(acc.historyList[0]==null)?acc.name: acc.historyList[0]}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
+<router-outlet ></router-outlet>
+<!-- <app-account-overview [accountName]="'RBC'"></app-account-overview> -->
