@@ -8,9 +8,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AccountsListComponent } from './accounts-list/accounts-list.component';
 import { AccountServiceService } from './service/account-service.service';
+import { SercuritiesService } from './service/sercurities.service';
 import { CashFlowComponent } from './cash-flow/cash-flow.component';
 import { MarketMoversComponent } from './market-movers/market-movers.component';
 import { SummaryOverviewComponent } from './summary-overview/summary-overview.component';
+
+// import {  DxPieChartModule, DxSelectBoxModule  } from 'devextreme-angular';
 
 @NgModule({
   declarations: [
@@ -18,16 +21,16 @@ import { SummaryOverviewComponent } from './summary-overview/summary-overview.co
     AccountsListComponent,
     CashFlowComponent,
     MarketMoversComponent,
-    SummaryOverviewComponent,
-//     AccountServiceService
-//     AccountsListComponent
+    SummaryOverviewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    // DxPieChartModule, 
+    // DxSelectBoxModule
   ],
-  providers: [AccountServiceService],
+  providers: [AccountServiceService, SercuritiesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

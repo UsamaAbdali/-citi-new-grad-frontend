@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Securities } from '../model/Securities';
+import { SercuritiesService } from '../service/sercurities.service';
+
+
 
 @Component({
   selector: 'app-market-movers',
@@ -7,9 +11,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MarketMoversComponent implements OnInit {
 
-  constructor() { }
+  topGainersSecurities = [];
+  topLosersSecurities = [];
+
+  constructor(private securitiesService: SercuritiesService) { }
+
 
   ngOnInit() {
+    this.setTopGainers();
+    this.setTopLosers();
+
+  }
+
+  setTopGainers(){
+    this.securitiesService.getTopGainers().subscribe(data =>{
+      data.forEach(security => {
+        this.topGainersSecurities.push(security);
+      });
+    }),
+    error =>{
+      console.log("ERROR: Couldn't get Top 5 Gainers",error);
+    }
+    console.log("topGainersSecurities",this.topGainersSecurities);
+  }
+
+  setTopLosers(){
+    this.securitiesService.getTopLosers().subscribe(data =>{
+      data.forEach(security => {
+        this.topLosersSecurities.push(security);
+      });
+    }),
+    error =>{
+      console.log("ERROR: Couldn't get Top 5 Losers",error);
+    }
+    console.log("topLosersSecurities",this.topLosersSecurities);
+  }
+
+  securityChangeCalculator(security:Securities):number{
+    // Calculate percentage change
+    var percentChange=((security.current_cost-security.closing_cost)/security.closing_cost)*100;
+    
+    //Round to 3 decimals
+    percentChange=Math.round(percentChange * 1000) / 1000;
+    return percentChange;
   }
 
 }
