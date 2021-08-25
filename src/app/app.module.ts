@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AccountsListComponent } from './accounts-list/accounts-list.component';
 import { AccountServiceService } from './service/account-service.service';
+import { SercuritiesService } from './service/sercurities.service';
 import { CashFlowComponent } from './cash-flow/cash-flow.component';
 import { MarketMoversComponent } from './market-movers/market-movers.component';
 
@@ -30,7 +31,7 @@ import { DxButtonModule, DxPieChartModule, DxSelectBoxModule  } from 'devextreme
     DxPieChartModule, 
     DxSelectBoxModule
   ],
-  providers: [AccountServiceService],
+  providers: [AccountServiceService, SercuritiesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
