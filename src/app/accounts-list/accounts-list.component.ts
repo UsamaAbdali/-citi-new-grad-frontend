@@ -30,6 +30,7 @@ export class AccountsListComponent implements OnInit {
     //pie chart func
     customizeLabel(arg) {
       // return arg.argumentText + " (" + arg.percentText + ")";
+      //  arg.value ;
       return arg.percentText ;
     }
 
