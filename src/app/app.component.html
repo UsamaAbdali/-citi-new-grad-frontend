@@ -1,18 +1,25 @@
 <div class="dashboard">
 
   <div class="card card-body bg-dark my-2">
-      <h2 class="card-title text-center text-white">{{ title }}</h2>
+      <h1 class="card-title text-center text-white">{{ title }}</h1>
+      <hr>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-secondary bg-gradient navbarText rounded">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item mr-5" routerLinkActive="active" [routerLinkActiveOptions]="{exact:'true'}">
+              <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item mr-5" routerLinkActive="active">
+              <a class="nav-link" routerLink="/manage-accounts">Manage Accounts</a>
+            </li>
+            <!-- <li class="nav-item mr-5" routerLinkActive="active">
+              <a class="nav-link disabled" routerLink="/disabled">Disabled</a>
+            </li> -->
+          </ul>
+        </div>
+      </nav>
   </div>
-
-  <div class="row">
-    <app-accounts-list class="col-4"></app-accounts-list>
-    <div class="col-4">
-      <app-summary-overview></app-summary-overview>
-      <app-cash-flow></app-cash-flow>
-    </div>
-    <app-market-movers class="col-4"></app-market-movers>
-  </div>
-
+  <br>
   <router-outlet></router-outlet>
 
 </div>
