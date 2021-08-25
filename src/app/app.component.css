@@ -1,3 +1,11 @@
 .dashboard {
     margin: 20px;
 }
+
+.navbarText{
+    font-size: 20px;
+}
+
+.activeLinkColor{
+    color: rgb(16, 150, 233);
+}

@@ -11,6 +11,8 @@ import { AccountServiceService } from './service/account-service.service';
 import { SercuritiesService } from './service/sercurities.service';
 import { CashFlowComponent } from './cash-flow/cash-flow.component';
 import { MarketMoversComponent } from './market-movers/market-movers.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 // import {  DxPieChartModule, DxSelectBoxModule  } from 'devextreme-angular';
 
@@ -20,6 +22,8 @@ import { MarketMoversComponent } from './market-movers/market-movers.component';
     AccountsListComponent,
     CashFlowComponent,
     MarketMoversComponent,
+    HomePageComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
