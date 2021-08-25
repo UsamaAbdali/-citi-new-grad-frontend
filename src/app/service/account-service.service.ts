@@ -49,6 +49,10 @@ export class AccountServiceService {
       return this.http.get<number>(this.getInvestmentValueUrl);
     } 
 
+    public getAccountById(id:string):Observable<Account>{
+      return this.http.get<Account>(this.baseUrl+"/"+id);
+    }
+
 
 
 }

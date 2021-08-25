@@ -46,7 +46,9 @@
       </thead>
       <tbody>
       <tr *ngFor="let c of cashAccounts">
-        <td>{{ c.name }}</td>
+        <td>
+          <a [routerLink]="['/manage-accounts',c.id]" class="">{{c.name}} </a>
+        </td>
         <td>{{ c.amount | currency }}</td>
       </tr>
       </tbody>
@@ -67,7 +69,9 @@
       </thead>
       <tbody>
       <tr *ngFor="let i of investmentAccounts">
-        <td>{{ i.name }}</td>
+        <td>
+          <a [routerLink]="['/manage-accounts',i.id]" class="">{{i.name}} </a>
+        </td>
         <td>{{ i.amount | currency }}</td>
       </tr>
       </tbody>

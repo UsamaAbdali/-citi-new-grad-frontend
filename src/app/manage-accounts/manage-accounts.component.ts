@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Account } from '../model/account';
 import { Securities } from '../model/Securities';
 import { AccountServiceService } from '../service/account-service.service';
@@ -16,8 +17,6 @@ export class ManageAccountsComponent implements OnInit {
   cashAccounts:Account[] = [];
   investmentAccounts:Account[] = [];
   
-  // cashValue:number=0;
-  // investmentValue:number=0;
 
   constructor(private accountsService: AccountServiceService) { }
 
