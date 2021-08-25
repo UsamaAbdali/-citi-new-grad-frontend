@@ -7,11 +7,7 @@
     <h5 class="font-weight-bold">Indices</h5>
     <br>
 
-    <h5 class="font-weight-bold">Top 5 gainers</h5>
-    <div class="d-flex flex-row bd-highlight mb-3">
-      <h4 class="font-weight-bold mr-auto">Cash </h4>
-      <h4 class="font-weight-bold ml-auto"> cashValue</h4>
-    </div>
+    <h5 class="font-weight-bold">Top 5 Gainers</h5>
     <hr>
     <table class="table table-striped">
       <thead class="thead-dark">
@@ -23,7 +19,7 @@
       <tbody>
       <tr *ngFor="let s of topGainersSecurities">
         <td>{{ s.symbol }}</td>
-        <td>{{ s.current_cost | currency }}</td>
+        <td class="secGain">{{ securityChangeCalculator(s) }}%</td>
       </tr>
       </tbody>
     </table>
@@ -31,6 +27,21 @@
     <br>
 
     <h5 class="font-weight-bold">Top 5 losers</h5>
+    <hr>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Symbol</th> 
+        <th scope="col">Loss</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let s of topLosersSecurities">
+        <td>{{ s.symbol }}</td>
+        <td class="secLoss">{{ securityChangeCalculator(s) }}%</td>
+      </tr>
+      </tbody>
+    </table>
     
   </div>
 
