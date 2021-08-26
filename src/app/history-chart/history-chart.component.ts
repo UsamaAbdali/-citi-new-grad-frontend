@@ -32,7 +32,7 @@ export class HistoryChartComponent implements OnInit {
       data.forEach(item=>{
         count+=1;
         this.lineChart.destroy();
-        if(count%3==0){
+        if(count%2==0){
          this.allLabels.push(item['date'].toString().split("T")[0]);
         }else{
           this.allLabels.push("");
@@ -45,7 +45,6 @@ export class HistoryChartComponent implements OnInit {
     error=>{
       console.log("ERROR: could not retrieve history data", error);
     }
-   
     this.lineChartMethod();
   }
 
