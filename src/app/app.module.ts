@@ -17,12 +17,11 @@ import { SummaryOverviewComponent } from './summary-overview/summary-overview.co
 import { AccountOverviewComponent } from './account-overview/account-overview.component';
 import { ManageAccountsComponent } from './manage-accounts/manage-accounts.component'; 
 import { InvestmentOverviewComponent } from './investment-overview/investment-overview.component';
+import { BuySellSecurityComponent } from './buy-sell-security/buy-sell-security.component'; 
 import { HistoryChartComponent } from './history-chart/history-chart.component'; 
 import { HistoryService } from './service/history.service';
 import { HistorySummaryComponent } from './history-summary/history-summary.component';
 
-
-// import {  DxPieChartModule, DxSelectBoxModule  } from 'devextreme-angular';
 
 @NgModule({
   declarations: [
@@ -35,6 +34,7 @@ import { HistorySummaryComponent } from './history-summary/history-summary.compo
     AccountOverviewComponent,
     ManageAccountsComponent,
     InvestmentOverviewComponent,
+    BuySellSecurityComponent,
     HistoryChartComponent,
     HistorySummaryComponent
   ],
@@ -44,8 +44,6 @@ import { HistorySummaryComponent } from './history-summary/history-summary.compo
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
-    // DxPieChartModule, 
-    // DxSelectBoxModule
   ],
   providers: [AccountServiceService, SercuritiesService, HistoryService],
   bootstrap: [AppComponent]

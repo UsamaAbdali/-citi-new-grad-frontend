@@ -13,11 +13,10 @@ export class AccountServiceService {
   private getNetWorthUrl: string;
   private getCashValueUrl: string;
   private getInvestmentValueUrl: string;
-  private getAllSecuritiesUrl: string
-  private putDepositMoneyURL: string
-
-
-  
+  private getAllSecuritiesUrl: string;
+  private putDepositMoneyURL: string;  
+  private putSellSecurityUrl: string
+  private postBuySecurityUrl: string
 
   constructor(private http: HttpClient) {
     this.baseUrl="http://portfolio-project-portfolio-project.namdevops24.conygre.com";
@@ -27,8 +26,9 @@ export class AccountServiceService {
     this.getCashValueUrl = this.baseUrl+"/cashAccountSummary";
     this.getInvestmentValueUrl = this.baseUrl+"/investmentAccountSummary";
     this.getAllSecuritiesUrl = this.baseUrl+"/allSecurities";
+    this.putSellSecurityUrl = this.baseUrl+"/sellSecurity"
+    this.postBuySecurityUrl = this.baseUrl+"/buySecurity"
     this.putDepositMoneyURL = this.baseUrl+"/depositMoney";
-
   }
 
     public findAll(): Observable<Account[]> {
@@ -62,8 +62,26 @@ export class AccountServiceService {
     public getAllSecurities(): Observable<Securities[]>{
       return this.http.get<Securities[]>(this.getAllSecuritiesUrl);
     }
+    public putSellSecurity(obj:Securities){
+      let putBody = {
+        'account_id': obj.account_id,
+        'cash_account_id': obj.cash_account,
+        'symbol': obj.symbol,
+        'holdings': obj.holdings
+      }
+      return this.http.put<any>(this.putSellSecurityUrl, putBody)
+    }
 
-    // add or remove amount from the named account 
+    public postBuySecurity(obj:Securities){
+      let postBody = {
+        'account_id': obj.account_id,
+        'cash_account_id': obj.cash_account,
+        'symbol': obj.symbol,
+        'holdings': obj.holdings
+      }       
+      return this.http.post<any>(this.postBuySecurityUrl, postBody)
+    }
+  // add or remove amount from the named account 
     public putDepositMoney(account_id:number, changeInCash:number){
       console.log("url used:",this.putDepositMoneyURL);
       var putBody={
@@ -72,5 +90,4 @@ export class AccountServiceService {
       }
       return this.http.put<Map<string, number>>(this.putDepositMoneyURL, putBody);
     }
-
 }
