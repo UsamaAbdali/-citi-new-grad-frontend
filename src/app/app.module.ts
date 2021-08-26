@@ -18,6 +18,7 @@ import { ManageAccountsComponent } from './manage-accounts/manage-accounts.compo
 import { InvestmentOverviewComponent } from './investment-overview/investment-overview.component';
 import { HistoryChartComponent } from './history-chart/history-chart.component'; 
 import { HistoryService } from './service/history.service';
+import { HistorySummaryComponent } from './history-summary/history-summary.component';
 
 
 // import {  DxPieChartModule, DxSelectBoxModule  } from 'devextreme-angular';
@@ -33,7 +34,8 @@ import { HistoryService } from './service/history.service';
     AccountOverviewComponent,
     ManageAccountsComponent,
     InvestmentOverviewComponent,
-    HistoryChartComponent
+    HistoryChartComponent,
+    HistorySummaryComponent
   ],
   imports: [
     BrowserModule,

@@ -45,7 +45,7 @@ export class HistoryChartComponent implements OnInit {
     error=>{
       console.log("ERROR: could not retrieve history data", error);
     }
-    console.log(this.allAmounts);
+   
     this.lineChartMethod();
   }
 
