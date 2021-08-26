@@ -1,10 +1,10 @@
 <ng-container>
-  <h4>Buy & Sell Securities</h4>
-  <br><br>
+  <br>
   <form (ngSubmit)="handleRequest()" ngNativeValidate>
-
+    <label class="inputLabel" for="account_name">Investment Account</label>
+    <br>
     <span>
-      Investment Account:
+      <!-- Investment Account: -->
       <select required [(ngModel)]='req.account_id' class="form-select" id="invest_account_id" name="invest_account_id">
         <option value="undefined"></option>
         <option *ngFor="let i of investmentAccounts" value={{i.id}}>
@@ -15,7 +15,8 @@
     <br/><br>
 
     <span>
-      Cash Account:
+      <label class="inputLabel" for="account_name">Cash Account</label>
+      <br>
       <select required [(ngModel)]='req.cash_account' class="form-select" id="cashAccount" name='cash_account_id'>
         <option value="undefined"></option>
         <option *ngFor="let c of cashAccounts" value={{c.id}}>
@@ -26,7 +27,8 @@
     <br/><br>
 
     <span>
-      Select Action: 
+      <label class="inputLabel" for="account_name">Select Action</label>
+      <br> 
       <select required [(ngModel)]='action' class="form-select" id="action" name='action'>
         <option value="undefined"></option>
         <option value='buy'>Buy</option>
@@ -35,18 +37,20 @@
     </span>
 
     <span>
-      Ticker Symbol:
+      <label class="inputLabel" for="account_name">Ticker Symbol</label>
+      <br> 
       <input required [(ngModel)]='req.symbol' id='symbol' class='form-text' name='id'/>
     </span>
     <br>
 
     <span>
-      Select Quantity:
+      <label class="inputLabel" for="account_name">Select Quantity</label>
+      <br> 
       <input required [(ngModel)]='req.holdings' type='number' name='quantity' min="1" class='form-text'/>
     </span>
     <br><br>
 
-    <button type="button" class="btn btn-secondary" type='submit'>Submit</button>
+    <button type="button" class="btn btn-success" type='submit'>Submit</button>
 
   </form>
 </ng-container>

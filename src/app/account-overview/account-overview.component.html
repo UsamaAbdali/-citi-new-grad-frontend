@@ -43,7 +43,7 @@
         </tbody>
       </table>
       <div class="d-flex flex-row bd-highlight mb-3 justify-content-end">
-        <button class="btn-lg btn-primary">Buy/Sell Securities</button>
+        <button class="btn-lg btn-primary" (click)="onBuySellBtn()">Buy/Sell Securities</button>
       </div>
     </div>
 
@@ -142,6 +142,18 @@
     </form>
   </div>
 </div>
+
+
+<div class="card my-1" *ngIf="isInvestmentAccount" [hidden]="!showBuySellStonksForm">
+  <div class="card-body bg-dark text-light">
+    <div class="d-flex flex-row bd-highlight mb-3" >
+      <h2 class="font-weight-bold mr-auto" >{{currAccount.name}}: Buy/Sell Securities</h2>
+      <button class="btn btn-danger ml-auto" (click)="onCancelForm()">Cancel</button>
+    </div>
+    <app-buy-sell-security></app-buy-sell-security>
+  </div>
+</div>
+
 
 
 
