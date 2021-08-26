@@ -1,0 +1,17 @@
+.errorMsg{
+    color: rgb(252, 8, 8);
+}
+
+.inputLabel{
+    font-size: x-large;
+    font-weight: bold;
+    color:rgb(97, 174, 255);
+}
+
+.positiveAmount{
+    color:green;
+}
+
+.negativeAmount{
+    color:red;
+}

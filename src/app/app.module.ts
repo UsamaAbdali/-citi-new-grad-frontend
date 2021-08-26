@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,9 +18,10 @@ import { AccountOverviewComponent } from './account-overview/account-overview.co
 import { ManageAccountsComponent } from './manage-accounts/manage-accounts.component'; 
 import { InvestmentOverviewComponent } from './investment-overview/investment-overview.component';
 import { BuySellSecurityComponent } from './buy-sell-security/buy-sell-security.component'; 
-import { FormsModule  } from "@angular/forms";
+import { HistoryChartComponent } from './history-chart/history-chart.component'; 
+import { HistoryService } from './service/history.service';
+import { HistorySummaryComponent } from './history-summary/history-summary.component';
 
-// import {  DxPieChartModule, DxSelectBoxModule  } from 'devextreme-angular';
 
 @NgModule({
   declarations: [
@@ -32,17 +34,18 @@ import { FormsModule  } from "@angular/forms";
     AccountOverviewComponent,
     ManageAccountsComponent,
     InvestmentOverviewComponent,
-    BuySellSecurityComponent
+    BuySellSecurityComponent,
+    HistoryChartComponent,
+    HistorySummaryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
-    // DxPieChartModule, 
-    // DxSelectBoxModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [AccountServiceService, SercuritiesService],
+  providers: [AccountServiceService, SercuritiesService, HistoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
