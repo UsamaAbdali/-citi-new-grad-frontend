@@ -17,7 +17,7 @@
     <span>
       <label class="inputLabel" for="account_name">Cash Account</label>
       <br>
-      <select required [(ngModel)]='req.cash_account' class="form-select" id="cashAccount" name='cash_account_id'>
+      <select required [(ngModel)]='req.cash_account_id' class="form-select" id="cashAccount" name='cash_account_id'>
         <option value="undefined"></option>
         <option *ngFor="let c of cashAccounts" value={{c.id}}>
           {{c.name}} 

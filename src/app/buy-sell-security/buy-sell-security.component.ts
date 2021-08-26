@@ -1,6 +1,7 @@
 import { Component, Output, OnInit } from '@angular/core';
 import { AccountServiceService } from '../service/account-service.service';
 import { Securities } from '../model/Securities';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-buy-sell-security',
@@ -14,7 +15,7 @@ export class BuySellSecurityComponent implements OnInit {
   action:string;
   req = new Securities();
 
-  constructor(private accountsService: AccountServiceService) { }
+  constructor(private accountsService: AccountServiceService, private router:Router) { }
 
   ngOnInit() {
     this.getAccounts()
@@ -43,16 +44,22 @@ export class BuySellSecurityComponent implements OnInit {
 
     if (this.action == "sell"){
       this.accountsService.putSellSecurity(this.req)
-      .subscribe(data=>{}),
+      .subscribe(data=>{
+        //route to manage-accounts 
+        this.router.navigate(['/manage-accounts'], {fragment:'loading'});
+      }),
       error=>{
         console.log("ERROR: ",error);
       }
     }
 
     if (this.action == "buy"){
-      console.log(this.req)
+      console.log("handleRequest() method",this.req)
       this.accountsService.postBuySecurity(this.req)
-      .subscribe(data=>{}),
+      .subscribe(data=>{
+        //route to manage-accounts 
+        this.router.navigate(['/manage-accounts'], {fragment:'loading'});
+      }),
       error=>{
         console.log("ERROR: ",error);
       }

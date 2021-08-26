@@ -65,7 +65,7 @@ export class AccountServiceService {
     public putSellSecurity(obj:Securities){
       let putBody = {
         'account_id': obj.account_id,
-        'cash_account_id': obj.cash_account,
+        'cash_account_id': obj.cash_account_id,
         'symbol': obj.symbol,
         'holdings': obj.holdings
       }
@@ -75,11 +75,12 @@ export class AccountServiceService {
     public postBuySecurity(obj:Securities){
       let postBody = {
         'account_id': obj.account_id,
-        'cash_account_id': obj.cash_account,
+        'cash_account_id': obj.cash_account_id,
         'symbol': obj.symbol,
-        'holdings': obj.holdings
+        'holdings': obj.holdings,
+        'type': "stock"
       }       
-      return this.http.post<any>(this.postBuySecurityUrl, postBody)
+      return this.http.post<Securities>(this.postBuySecurityUrl, postBody)
     }
   // add or remove amount from the named account 
     public putDepositMoney(account_id:number, changeInCash:number){
