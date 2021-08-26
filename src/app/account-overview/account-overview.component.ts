@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Account } from '../model/account';
 import { HistoryModel } from '../model/history';
@@ -15,7 +15,7 @@ HistoryModel
 })
 export class AccountOverviewComponent implements OnInit {
 
-  constructor(private accountsService: AccountServiceService, private activedRoute:ActivatedRoute) { 
+  constructor(private accountsService: AccountServiceService, private activedRoute:ActivatedRoute, private router:Router) { 
   }
   currAccount:Account;
   // Default account as placeholder until async request resolved
@@ -91,7 +91,25 @@ export class AccountOverviewComponent implements OnInit {
 }
 
   onSubmitDepositWithdraw(){
-    console.log(this.depositWithdrawForm);
+    var depositVal=0;
+    
+    // If "withdrawl" covert amount to negative
+    if(this.depositWithdrawForm.get('transactionType').value=='Withdraw'){
+      depositVal=-Math.abs(this.depositWithdrawForm.get('amount').value)
+    }
+    // else "deposit"
+    else{
+      depositVal=Math.abs(this.depositWithdrawForm.get('amount').value)
+    }
+
+    this.accountsService.putDepositMoney(this.currAccount.id,depositVal)
+    .subscribe(val =>{  
+      // Navigate to all manage-accounts once complete
+      this.router.navigate(['/manage-accounts'], {fragment:'loading'});
+    }),
+    error =>{
+      console.log("ERROR: Couldn't put to DepositMoney",error);
+    }
   }
 
   onDepositWithdrawBtn(){
@@ -101,8 +119,6 @@ export class AccountOverviewComponent implements OnInit {
   onCancelForm(){
     this.showDepositWithdrawForm=false;
   }
-
-
 
   ngOnDestroy() {
     this.ngSetAccountInitial.unsubscribe();

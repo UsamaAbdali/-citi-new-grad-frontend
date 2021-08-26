@@ -14,6 +14,8 @@ export class AccountServiceService {
   private getCashValueUrl: string;
   private getInvestmentValueUrl: string;
   private getAllSecuritiesUrl: string
+  private putDepositMoneyURL: string
+
 
   
 
@@ -25,6 +27,8 @@ export class AccountServiceService {
     this.getCashValueUrl = this.baseUrl+"/cashAccountSummary";
     this.getInvestmentValueUrl = this.baseUrl+"/investmentAccountSummary";
     this.getAllSecuritiesUrl = this.baseUrl+"/allSecurities";
+    this.putDepositMoneyURL = this.baseUrl+"/depositMoney";
+
   }
 
     public findAll(): Observable<Account[]> {
@@ -57,6 +61,16 @@ export class AccountServiceService {
 
     public getAllSecurities(): Observable<Securities[]>{
       return this.http.get<Securities[]>(this.getAllSecuritiesUrl);
+    }
+
+    // add or remove amount from the named account 
+    public putDepositMoney(account_id:number, changeInCash:number){
+      console.log("url used:",this.putDepositMoneyURL);
+      var putBody={
+        account_id : account_id,
+        changeInCash : changeInCash
+      }
+      return this.http.put<Map<string, number>>(this.putDepositMoneyURL, putBody);
     }
 
 }
