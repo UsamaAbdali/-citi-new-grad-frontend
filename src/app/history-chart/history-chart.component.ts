@@ -32,11 +32,11 @@ export class HistoryChartComponent implements OnInit {
       data.forEach(item=>{
         count+=1;
         this.lineChart.destroy();
-        if(count%2==0){
+        // if(count%2==0){
          this.allLabels.push(item['date'].toString().split("T")[0]);
-        }else{
-          this.allLabels.push("");
-        }
+        // }else{
+          // this.allLabels.push("");
+        // }
         this.allAmounts.push(item['value']);
         this.lineChartMethod();
       });
@@ -63,17 +63,19 @@ export class HistoryChartComponent implements OnInit {
           tension: 0.1
         }]
       },
-      xAxes: [{
-        type: 'time',
-        ticks: {
-            autoSkip: true,
-            maxTicksLimit: 20
-        }
-    }],
+   
     options: {
       tooltips: {enabled: false},
       hover: {mode: null},
-
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Amount ($)'
+          }
+        }]
+      }     
+    
     }
 
     });

@@ -9,39 +9,47 @@
     <table class="table table-striped">
       <thead class="thead-dark">
       <tr>
-        <th scope="col">Time </th> 
+        <th scope="col">Cash Accounts </th> 
         <th scope="col">Amount</th>
       </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Cash a Week Ago</td><td>{{weekCash}}</td>
+          <td>Week Ago</td><td>${{weekCash}}</td>
+        </tr>
+        
+        <tr>
+          <td>Month Ago</td><td>${{monthCash}}</td>
         </tr>
         <tr>
-          <td>Investments a Week Ago</td><td>{{weekInvestment}}</td>
+          <td>Year Ago</td><td>${{yearCash}}</td>
         </tr>
-        <tr>
-          <td>Cash a Month Ago</td><td>{{monthCash}}</td>
-        </tr>
-        <tr>
-          <td>Investments a Month Ago</td><td>{{monthInvestment}}</td>
-        </tr>
-        <tr>
-          <td>Cash a Year Ago</td><td>{{yearCash}}</td>
-        </tr>
-        <tr>
-          <td>Investments a Year Ago</td><td>{{yearInvestment}}</td>
-        </tr>
-              
-      <!-- <tr *ngFor="let c of cashAccounts">
-        <td>
-          <a [routerLink]="['/manage-accounts',c.id]" class="">{{c.name}} </a>
-        </td>
-        <td>{{ c.amount | currency }}</td>
-      </tr> -->
+   
       </tbody>
     </table>
-
+    <br/>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Investment Accounts </th> 
+        <th scope="col">Amount</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+        <tr>
+          <td>Week Ago</td><td>${{weekInvestment}}</td>
+        </tr>
+        <tr>
+          <td>Month Ago</td><td>${{monthInvestment}}</td>
+        </tr>
+       
+        <tr>
+          <td>Year Ago</td><td>${{yearInvestment}}</td>
+        </tr>
+   
+      </tbody>
+    </table>
 
 
   </div>
