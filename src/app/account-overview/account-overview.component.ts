@@ -92,6 +92,14 @@ export class AccountOverviewComponent implements OnInit {
 
   onSubmitDepositWithdraw(){
     console.log(this.depositWithdrawForm);
+    console.log("values used for deposit:",this.currAccount.id,this.depositWithdrawForm.get('amount').value);
+    this.accountsService.putDepositMoney(this.currAccount.id,this.depositWithdrawForm.get('amount').value)
+    .subscribe(val =>{
+      
+    }),
+    error =>{
+      console.log("ERROR: Couldn't put to DepositMoney",error);
+    }
   }
 
   onDepositWithdrawBtn(){
