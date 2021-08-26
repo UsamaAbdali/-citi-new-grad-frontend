@@ -67,10 +67,10 @@ export class AccountServiceService {
     public putDepositMoney(account_id:number, changeInCash:number){
       console.log("url used:",this.putDepositMoneyURL);
       var putBody={
-        "account_id" : account_id,
-        "changeInCash" : changeInCash
+        account_id : account_id,
+        changeInCash : changeInCash
       }
-      return this.http.post<Map<string, number>>(this.putDepositMoneyURL, putBody);
+      return this.http.put<Map<string, number>>(this.putDepositMoneyURL, putBody);
     }
 
 }
