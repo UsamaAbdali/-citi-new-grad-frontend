@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Account } from '../model/account';
+import { Securities } from '../model/Securities';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -12,6 +13,7 @@ export class AccountServiceService {
   private getNetWorthUrl: string;
   private getCashValueUrl: string;
   private getInvestmentValueUrl: string;
+  private getAllSecuritiesUrl: string
 
   
 
@@ -22,7 +24,7 @@ export class AccountServiceService {
     this.getNetWorthUrl = this.baseUrl+"/netWorth";
     this.getCashValueUrl = this.baseUrl+"/cashAccountSummary";
     this.getInvestmentValueUrl = this.baseUrl+"/investmentAccountSummary";
-
+    this.getAllSecuritiesUrl = this.baseUrl+"/allSecurities";
   }
 
     public findAll(): Observable<Account[]> {
@@ -37,18 +39,20 @@ export class AccountServiceService {
       return this.http.post<Account>(this.accountsUrl, account);
     }
     
-    public getNetWorth():Observable<number>{  
+    public getNetWorth(): Observable<number>{  
       return this.http.get<number>(this.getNetWorthUrl);
     }
 
-    public getCashValue():Observable<number>{
+    public getCashValue(): Observable<number>{
       return this.http.get<number>(this.getCashValueUrl);
     }     
     
-    public getInvestmenthValue():Observable<number>{
+    public getInvestmenthValue(): Observable<number>{
       return this.http.get<number>(this.getInvestmentValueUrl);
     } 
 
-
+    public getAllSecurities(): Observable<Securities[]>{
+      return this.http.get<Securities[]>(this.getAllSecuritiesUrl);
+    }
 
 }

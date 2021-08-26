@@ -1,4 +1,4 @@
-<div class="card my-1">
+<div class="card my-3">
   
   <div class="card-body">
     <h2 class='font-weight-bold'>Summary Overview</h2>
@@ -6,9 +6,9 @@
 
     <div>
       <br>
-      <h4 class="ml-auto">Net Worth: {{netWorth | currency}}</h4>
-      <h4 class="ml-auto">Cash: {{cashValue/netWorth*100 | number : '1.2-2'}}%</h4>
-      <h4 class="ml-auto">Investment: {{investmentValue/netWorth*100 | number : '1.2-2'}}%</h4>
+      <h5 class="ml-auto">Net Worth: {{netWorth | currency}}</h5>
+      <h5 class="ml-auto">Cash: {{cashValue/netWorth*100 | number : '1.2-2'}}%</h5>
+      <h5 class="ml-auto">Investment: {{investmentValue/netWorth*100 | number : '1.2-2'}}%</h5>
       <br>
       <canvas id="summaryChart"></canvas>
     </div>

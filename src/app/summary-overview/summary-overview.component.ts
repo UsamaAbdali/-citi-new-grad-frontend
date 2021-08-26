@@ -67,13 +67,13 @@ export class SummaryOverviewComponent implements OnInit {
           label: 'money',
           data: [this.cashValue, this.investmentValue],
           backgroundColor: [
-            '#36A2EB',
-            '#FFCE56'
-          ],
-          hoverBackgroundColor: [
-            'rgba(54, 162, 235, 0.5)',
-            'rgba(255, 206, 86, 0.5)'
+            '#648FFF',
+            '#FFB000'
           ]
+          // hoverBackgroundColor: [
+          //   'rgba(54, 162, 235, 0.5)',
+          //   'rgba(255, 206, 86, 0.5)'
+          // ]
         }]
       },
       options: {
