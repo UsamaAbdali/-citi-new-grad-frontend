@@ -51,8 +51,16 @@ export class AccountServiceService {
       return this.http.get<number>(this.getInvestmentValueUrl);
     } 
 
+<<<<<<< HEAD
     public getAllSecurities(): Observable<Securities[]>{
       return this.http.get<Securities[]>(this.getAllSecuritiesUrl);
     }
+=======
+    public getAccountById(id:string):Observable<Account>{
+      return this.http.get<Account>(this.baseUrl+"/"+id);
+    }
+
+
+>>>>>>> 05c3a056c6aeab155c4e26a21ef6539a45a96b8d
 
 }

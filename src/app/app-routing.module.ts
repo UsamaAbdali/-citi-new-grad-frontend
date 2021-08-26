@@ -3,17 +3,16 @@ import { Routes, RouterModule } from '@angular/router';
 import {AccountsListComponent} from './accounts-list/accounts-list.component';
 import {HomePageComponent} from './home-page/home-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-// import { UserListComponent } from './user-list/user-list.component';
-// import { UserFormComponent } from './user-form/user-form.component';
+import { AccountOverviewComponent } from './account-overview/account-overview.component';
+import { ManageAccountsComponent } from './manage-accounts/manage-accounts.component';
 
 const routes: Routes = [
   {path:'', component: HomePageComponent},
-  {path:'manage-accounts', component: AccountsListComponent},
+  {path:'manage-accounts', component: ManageAccountsComponent, children:[
+    {path:':id', component:AccountOverviewComponent}
+  ]},
   {path: 'not-found', component: PageNotFoundComponent},
   {path: '**', redirectTo: '/not-found'}
-  // {path:'', redirectTo:"home"},
-  // {path:'home', component: AccountsListComponent}
-
 ];
 
 @NgModule({
