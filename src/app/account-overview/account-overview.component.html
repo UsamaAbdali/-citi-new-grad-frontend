@@ -47,7 +47,7 @@
       </div>
     </div>
 
-    <!-- Transactions Table -->
+    <!-- Transactions/History Table -->
     <div *ngIf="!isInvestmentAccount">
       <div class="d-flex flex-row bd-highlight mb-3">
         <h4 class="font-weight-bold mr-auto">Recent Transactions </h4>
@@ -60,7 +60,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let c of history">
+        <tr *ngFor="let c of currAccount.historyList">
           <td>{{ c.transactionDate }}</td>
           <td [ngClass]="{'positiveAmount': c.amount>=0, 'negativeAmount': c.amount<0}" >{{ c.amount }}$</td>
         </tr>
