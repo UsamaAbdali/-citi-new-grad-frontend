@@ -29,8 +29,9 @@ export class AccountOverviewComponent implements OnInit {
   private ngSetAccountForParams = new Subscription;
   // Forms
   showDepositWithdrawForm:boolean=false;
+  showBuySellStonksForm:boolean=false;
+
   depositWithdrawForm:FormGroup;
-  buySellSecuritiesForm:FormGroup;
   cashAccOptions=["Deposit", "Withdraw"];
 
 
@@ -114,10 +115,15 @@ export class AccountOverviewComponent implements OnInit {
 
   onDepositWithdrawBtn(){
     this.showDepositWithdrawForm=true;
+  }
 
+  onBuySellBtn(){
+    this.showBuySellStonksForm=true;
+    console.log("onBuySellBtn");
   }
   onCancelForm(){
     this.showDepositWithdrawForm=false;
+    this.showBuySellStonksForm=false;
   }
 
   ngOnDestroy() {
