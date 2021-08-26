@@ -43,7 +43,7 @@
         </tbody>
       </table>
       <div class="d-flex flex-row bd-highlight mb-3 justify-content-end">
-        <button class="btn-lg btn-primary ">Buy/Sell Securities</button>
+        <button class="btn-lg btn-primary">Buy/Sell Securities</button>
       </div>
     </div>
 
@@ -67,9 +67,79 @@
         </tbody>
       </table>
       <div class="d-flex flex-row bd-highlight mb-3 justify-content-end">
-        <button class="btn-lg btn-primary ">Deposit/Withdraw</button>
+        <button class="btn-lg btn-primary" (click)="onDepositWithdrawBtn()">Deposit/Withdraw</button>
       </div>
     </div>
     <br>
   </div>
 </div>
+
+<br>
+<!-- Deposit/WithDraw Form for Cash Accounts -->
+<div class="card my-1" *ngIf="!isInvestmentAccount" [hidden]="!showDepositWithdrawForm">
+  <div class="card-body">
+    <div class="d-flex flex-row bd-highlight mb-3" >
+      <h2 class="font-weight-bold mr-auto" >{{currAccount.name}}: Deposit/Withdraw</h2>
+      <button class="btn btn-danger ml-auto" (click)="onCancelForm()">Cancel</button>
+    </div>
+    <form [formGroup]="depositWithdrawForm" (ngSubmit)="onSubmitDepositWithdraw()">
+      <!-- <div formGroupName="userData"> -->
+        <div class="form-group" >
+          <label for="account_name">Account Name</label>
+          <input
+            type="text"
+            id="account_name"
+            class="form-control"
+            formControlName="account_name"
+            readonly
+            [value]="currAccount.name"
+            >
+            <span
+              class="errorMsg help=block"
+              *ngIf="!depositWithdrawForm.get('account_name').valid && depositWithdrawForm.get('account_name').touched"    
+            >
+            </span>
+        </div>
+        <p>Transaction Type:</p>
+        <div class="radio" *ngFor="let option of cashAccOptions">
+          <label>
+            <input
+              type="radio"
+              [value]="option"
+              formControlName="transactionType"
+            >{{ option }}
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input
+            type="number"
+            id="amount"
+            class="form-control"
+            formControlName="amount"
+            min="1"
+            value=1
+          >
+          <span
+          class="errorMsg"
+          *ngIf="!depositWithdrawForm.get('amount').valid && depositWithdrawForm.get('amount').touched"    
+          >
+            Required!
+          </span>
+          <br>
+          <span
+          class="errorMsg"
+          *ngIf="!depositWithdrawForm.get('amount').valid && depositWithdrawForm.get('amount').touched && depositWithdrawForm.get('transactionType').value=='Withdraw'"    
+          >
+          Withdrawl amount must be smaller or equal to Account value.
+          </span>
+        </div>
+      <!-- </div> -->
+      <button class="btn btn-success" type="submit" [disabled]="!depositWithdrawForm.valid">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+
+    
